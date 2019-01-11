@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LoginDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="LoginDatabaseEntites" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="blogs1" EntityType="LoginDatabaseModel.blogs" />
+    <EntitySet Name="testnas" EntityType="LoginDatabaseModel.testna" />
+    <EntitySet Name="categories" EntityType="LoginDatabaseModel.category" />
+  </EntityContainer>
+  <EntityType Name="blogs">
+    <Key>
+      <PropertyRef Name="blogid" />
+    </Key>
+    <Property Name="blogid" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Precision="3" Type="DateTime" />
+    <Property Name="kategorija" Type="Int32" />
+    <Property Name="Imagepath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="testna">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="CatId" />
+    </Key>
+    <Property Name="CatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naslov_kategorije" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Imagepath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

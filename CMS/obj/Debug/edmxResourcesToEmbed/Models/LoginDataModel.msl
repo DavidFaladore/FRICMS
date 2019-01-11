@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LoginDatabaseModelStoreContainer" CdmEntityContainer="LoginDatabaseEntites">
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="LoginDatabaseModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blogs1">
+      <EntityTypeMapping TypeName="LoginDatabaseModel.blogs">
+        <MappingFragment StoreEntitySet="blogs">
+          <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+          <ScalarProperty Name="kategorija" ColumnName="kategorija" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="blogid" ColumnName="blogid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="testnas">
+      <EntityTypeMapping TypeName="LoginDatabaseModel.testna">
+        <MappingFragment StoreEntitySet="testna">
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="LoginDatabaseModel.category">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+          <ScalarProperty Name="naslov_kategorije" ColumnName="naslov_kategorije" />
+          <ScalarProperty Name="CatId" ColumnName="CatId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

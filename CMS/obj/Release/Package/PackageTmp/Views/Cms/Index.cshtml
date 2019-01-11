@@ -1,0 +1,58 @@
+﻿
+@model List<CMS.Models.blogs>
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" wfd-id="3">
+        <h1 class="h2">Blog posts</h1>
+    </div>
+
+    <div class="alert alert-warning alert-success fade show" id="alertDeleted" role="alert" style="display: none">
+        <strong>Holy guacamole!</strong> Your post was successfully deleted! 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int counter = 1;
+                }
+
+                @foreach (var post in Model)
+                {
+                    <tr data-blog="@post.blogid" id="@post.blogid">
+                        <td scope="row">@counter</td>
+                        <td><a href="/cms/edit/@post.blogid">@post.title</a></td>
+                        <td>
+                            @if (post.content.Length > 40)
+                            {
+                                @post.content.Substring(0, 40)<span>...</span>
+                            }
+                        </td>
+                        <td>@ViewBag.AppDataApplicationType</td>
+                        <td>
+                            <a href="/cms/edit/@post.blogid" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="javascript: void(0)" class="btn btn-sm btn-primary deletePost" data-id="@post.blogid">Delete</a>
+                    </tr>
+
+                    counter++;
+                }
+            </tbody>
+        </table>
+    </div>
+</main>

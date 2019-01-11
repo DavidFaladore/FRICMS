@@ -1,0 +1,33 @@
+﻿@model CMS.Models.blogs
+
+@{
+    ViewBag.Title = Model.title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main role="main" class="">
+    <div class="pt-3 pb-2 mb-3 text-center">
+        <h1 class="h2">@Html.DisplayFor(model => model.title)</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <hr />
+                <small style="padding:5px;"><b>Category: </b> @ViewData["Categories"]</small>
+                <hr />
+                <div class="text-center">
+                    <img src="@if (Model.Imagepath != null) { "/" + @Model.Imagepath.Substring(1,Model.Imagepath.Length-1) } else {
+                                @:https://literative.com/wp-content/uploads/WHA_vince_Stars-862x539.jpg
+                                    }  " class="img-fluid mt-3" />
+                </div>
+                
+                <p class="mt-5">@Html.DisplayFor(model => model.content)</p>
+
+                <div class="pt-5 pb-2 mb-3">
+                    @Html.ActionLink("Back to blog posts", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

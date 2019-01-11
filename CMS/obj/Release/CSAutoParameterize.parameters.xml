@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LoginDatabaseEntites-Web.config Connection String" description="LoginDatabaseEntites Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.LoginDataModel.csdl|res://*/Models.LoginDataModel.ssdl|res://*/Models.LoginDataModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=fri-server.database.windows.net;initial catalog=IS-CMS;persist security info=True;user id=david;password=Liverpool9;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\David\\Desktop\\CMS\\CMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LoginDatabaseEntites']/@connectionString" />
+  </parameter>
+</parameters>

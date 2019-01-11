@@ -1,0 +1,58 @@
+﻿@model List<CMS.Models.blogs>
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2">Edit blog post</h1>
+    </div>
+
+    @using (Html.BeginForm(null, null, FormMethod.Post,
+                                new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.First().blogid)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.First().title)
+                @Html.EditorFor(model => model.First().title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.First().title, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.First().content)
+                @Html.TextAreaFor(model => model.First().content, new { @class = "form-control", @cols = "50", @rows = "10" })
+                @Html.ValidationMessageFor(model => model.First().content, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                @Html.DropDownListFor(x => x.First().kategorija, (SelectList)ViewBag.AppDataApplicationType, htmlAttributes: new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.First().Imagepath) <br />
+                <img src="@Model.First().Imagepath" width="150" height="150" />
+            </div>
+
+            <div class="form-group">
+                <label>Upload picture</label>
+                <input type="file" class="form-control-file" name="ImageFile" accept="image/*" required />
+            </div>
+
+            <div class="form-group text-right mt-5">
+                <input type="submit" value="Save" class="btn btn-primary btn-block" />
+            </div>
+        </div>
+    }
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</main>

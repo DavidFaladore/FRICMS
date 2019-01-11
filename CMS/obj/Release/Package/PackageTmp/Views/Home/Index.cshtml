@@ -1,0 +1,56 @@
+﻿@model List<CMS.Models.blogs>
+@{
+    ViewData["Title"] = "Homepage";
+}
+@if (ViewBag.Message != null) {
+    <h4>@ViewBag.Message</h4>
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <h4>Blog je prazen</h4>
+    <p>V izdelavi. Obiščite kasneje! :-)</p>
+    <a href="~/cms/create">Ustvari novo objavo</a>
+}
+else
+{
+    <main role="main">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Welcome to our blog</h1>
+                <p class="lead text-muted">This page was done entirely by David and Mario and it's working flawlessly! Thanks for checking our page, if you have any suggestions please visit us at fkkt-11 :)</p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row objave">
+                    <!-- foreach (var post in Model)
+                         {
+                             <div class="col-md-4" wfd-id="44">
+                                 <div class="card mb-4 shadow-sm" wfd-id="45">
+                                     <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="if (post.Imagepath != null && post.Imagepath.Length > 3) { post.Imagepath.Substring(1,post.Imagepath.Length-1) } else {
+                                     :https://literative.com/wp-content/uploads/WHA_vince_Stars-862x539.jpg
+                                         } " data-holder-rendered="ifue">
+                                     <div class="card-body" wfd-id="46">
+                                         <p class="card-text">post.title</p>
+                                         <div class="d-flex justify-content-between align-items-center" wfd-id="47">
+                                             <div class="btn-group" wfd-id="48">
+                                                 <a href="/post/post.blogid"><button type="button" class="btn btn-sm btn-outline-secondary" wfd-id="72">View more</button></a>
+                                             </div>
+                                             <small class="text-muted">9 mins</small>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         }*/ -->
+
+                </div>
+                <div id="progress" style="display:none">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/585d0331234507.564a1d239ac5e.gif"/>
+                </div>
+            </div>
+        </div>
+    </main>
+}

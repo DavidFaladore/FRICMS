@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Website</title>
+
+    @Styles.Render("https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css")
+    @Styles.Render("https://use.fontawesome.com/releases/v5.5.0/css/all.css")
+    @Styles.Render("~/assets/css/style.css?ver=1")
+</head>
+<body>
+
+    <header>
+        <div class="bg-dark collapse" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">David Faladore and Mario Balukčič copyrighted by FRI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="/" class="navbar-brand d-flex align-items-center">
+                    <i data-feather="layers"></i>&nbsp;<strong>Blog</strong>
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" wfd-id="73">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer class="text-muted">
+        <div class="container mt-3" wfd-id="0">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>© CMS</p>
+        </div>
+    </footer>
+
+    <partial name="_CookieConsentPartial" />
+
+    @Scripts.Render("~/assets/lib/jquery/jquery.min.js")
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js")
+    @Scripts.Render("https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js")
+
+    @Scripts.Render("https://unpkg.com/feather-icons")
+    <script>
+        feather.replace()
+    </script>
+
+    @Scripts.Render("~/assets/js/site.js")
+    <svg xmlns="http://www.w3.org/2000/svg" width="508" height="226" viewBox="0 0 508 226" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg>
+</body>
+</html>

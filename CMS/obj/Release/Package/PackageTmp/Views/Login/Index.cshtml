@@ -1,0 +1,42 @@
+﻿
+@model CMS.Models.user
+@{
+    /**/
+
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using (Html.BeginForm("Autherize", "Login", FormMethod.Post, new { @class = "form-signin" }))
+{
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">CMS Login</h1>
+        <p>This is a <code>:login page</code> for our blog CMS.</p>
+    </div>
+    if(Model.LoginErrorMessage != "")
+    {
+        <div class="alert alert-danger">
+            @Html.DisplayFor(Model => Model.LoginErrorMessage)
+        </div>
+    }
+    <div class="form-label-group">
+        @Html.TextBoxFor(Model => Model.Username, "", new { @class = "form-control", placeholder = "Username" })
+        <label for="inputEmail">Username</label>
+        <div>
+            @Html.ValidationMessageFor(Model => Model.Username)
+        </div>
+    </div>
+    <div class="form-label-group">
+        @Html.PasswordFor(Model => Model.Password, new { @class = "form-control", placeholder = "Password" })
+        <label for="inputEmail">Password</label>
+        <div>
+            @Html.ValidationMessageFor(Model => Model.Password)
+
+        </div>
+
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login">Sign in</button>
+    <p class="mt-5 mb-3 text-muted text-center">© 2018</p>
+}
+
